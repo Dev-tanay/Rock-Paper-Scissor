@@ -1,0 +1,155 @@
+@charset "UTF-8";
+.scene {
+  max-width: 1550px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+}
+
+.scene__title {
+  position: inherit;
+  top: -60px;
+  border-radius: 8px 20px;
+  font-family: "Georgia";
+  font-size: 24px;
+  padding: 10px 25px;
+  background-color: white;
+  transition: transform 0.3s ease;
+}
+
+.scene__title_modified {
+  transform: scale(1.4);
+}
+
+.scene__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.scene__score-board {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  z-index: -1;
+}
+
+.scene__score-board_left, .scene__score-board_right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 84px;
+  font-weight: bold;
+  font-family: "Georgia";
+}
+
+.scene__score-board_left {
+  background-color: #ff7575;
+  color: #ff4040;
+  flex: 1;
+}
+
+.scene__score-board_right {
+  background-color: #6262ff;
+  color: #2c2cff;
+  flex: 1;
+}
+
+.scene__hand-container {
+  width: 150px;
+  -webkit-animation: swang 1s ease-out infinite;
+          animation: swang 1s ease-out infinite;
+  display: flex;
+  justify-content: flex-end;
+  transform-origin: 0% 100%;
+}
+
+.scene__hand-container:last-child {
+  justify-content: flex-start;
+  -webkit-animation: swang-reversed 1s ease-out infinite;
+          animation: swang-reversed 1s ease-out infinite;
+  transform-origin: 100% 100%;
+}
+
+.scene__hand {
+  font-size: 90px;
+  transform: rotate(-85deg);
+  padding: 0 20px;
+}
+
+.scene__hand_left {
+  transform: rotate(85deg) rotateY(180deg);
+}
+
+.scene__hand_rock:after {
+  content: "✊";
+}
+
+.scene__hand_paper:after {
+  content: "✋";
+}
+
+.scene__hand_scissor:after {
+  content: "✌️";
+}
+
+[data-type] {
+  padding: 10px 25px;
+  background: none;
+  border-radius: 4px;
+  font-family: "Georgia";
+  font-size: 14px;
+  background-color: rgb(35, 35, 35);
+  color: white;
+  font-weight: bold;
+  border: none;
+  letter-spacing: 1px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 8px 20px;
+}
+[data-type]:active {
+  transform: translatey(2px);
+}
+
+@-webkit-keyframes swang {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+}
+
+@keyframes swang {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+}
+@-webkit-keyframes swang-reversed {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+}
+@keyframes swang-reversed {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+}
